@@ -9,5 +9,5 @@ comp := gcc $(src) $(headers)
 win:
 	$(comp) -o $(winx)
 
-lin:
+linux:
 	$(comp) -o $(linx)

@@ -4,8 +4,6 @@
 #include "testInsertSort.h"
 int main() {
     testInsertSort();
-
-    getchar();
     return 0;
 }
 
