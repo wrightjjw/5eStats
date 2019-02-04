@@ -15,6 +15,6 @@ void insertSort(unsigned* A, unsigned size) {
                 sorts++;
             }
         }
-        if (sorts < 0) sorted = 1;
+        if (sorts == 0) sorted = 1;
     }
 }

@@ -1,13 +1,14 @@
-winx := bin/DND.exe
-linx:= bin/DND
+winx := bin/stats
 
-headers:= insertSort.h testInsertSort.h
-src:= stats.c
+test:= testInsertSort.h
+src:= stats.c insertSort.h
 
-comp := gcc $(src) $(headers)
+test:
+	gcc $(src) $(test) -o $(winx).exe
 
-win:
-	$(comp) -o $(winx)
+debug:
+	gcc -g $(src) $(test) -o $(winx)_debug.exe
 
-linux:
-	$(comp) -o $(linx)
+all:
+	gcc $(src) $(test) -o $(winx).exe
+	gcc -g $(src) $(test) -o $(winx)_debug.exe
