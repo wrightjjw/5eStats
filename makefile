@@ -12,3 +12,7 @@ debug:
 all:
 	gcc $(src) $(test) -o $(winx).exe
 	gcc -g $(src) $(test) -o $(winx)_debug.exe
+
+clean:
+	rm $(winx).exe
+	rm $(winx)_debug.exe
