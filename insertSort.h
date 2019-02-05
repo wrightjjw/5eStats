@@ -5,7 +5,7 @@ void insertSort(unsigned* A, unsigned size) {
 
         unsigned sorts = 0; // number of sorts per search
         for (unsigned i = 0; i < size - 1; i++) {
-            if (A[i] > A[i + 1]) {
+            if (A[i] < A[i + 1]) {
                 // swap elements
                 unsigned x;
                 x = A[i];
