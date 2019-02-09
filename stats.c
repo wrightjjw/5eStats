@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <unistd.h>
 #include "testInsertSort.h"
+
+static int VERSION = 1;
+static int PATCH = 1;
 
 static FILE* f;
 
@@ -28,15 +32,23 @@ void print_stats(unsigned* A) {
 int main(int argc, char* argv[]) {
     time_t t;
     srand((unsigned) time(&t));
-    unsigned loop;
+    unsigned loop = 1;
+    int vflag = 0;
+    int c;
     
-    if (argc > 1) {
-        // Number of loops:
-        loop = atoi(argv[1]);
-        // File:
-        if (argc > 2) f = fopen(argv[2], "w");
-            else f = NULL;
-    } else loop = 1;
+    while ((c = getopt (argc, argv, "vc:f:")) != -1)
+    switch(c) {
+        case 'v':
+            printf("Stat Generator by Josh Wright\nVersion %d.%d", VERSION, PATCH);
+            vflag = 1;
+            break;
+        case 'c':
+            loop = atoi(optarg);
+            break;
+        case 'f':
+            f = fopen(optarg, "w");
+            break;
+    }
 
     #pragma omp parallel for
     for (unsigned i = 0; i < loop; i++)
