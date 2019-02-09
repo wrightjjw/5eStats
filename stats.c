@@ -49,6 +49,7 @@ int main(int argc, char* argv[]) {
             f = fopen(optarg, "w");
             break;
     }
+    if (vflag) return 0;
 
     #pragma omp parallel for
     for (unsigned i = 0; i < loop; i++)
