@@ -6,7 +6,7 @@
 #include "testInsertSort.h"
 
 static int VERSION = 1;
-static int PATCH = 1;
+static int PATCH = 2;
 
 static FILE* f;
 
