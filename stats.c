@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include <unistd.h>
-#include "testInsertSort.h"
+#include "insertSort.h"
 
 static int VERSION = 1;
 static int PATCH = 2;
