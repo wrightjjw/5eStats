@@ -36,8 +36,14 @@ int main(int argc, char* argv[]) {
     int vflag = 0;
     int c;
     
-    while ((c = getopt (argc, argv, "vc:f:")) != -1)
+    while ((c = getopt (argc, argv, "?vc:f:")) != -1)
     switch(c) {
+        case '?':
+            printf("  Usage: stats {flags}\n"
+            "  Flags:\n"
+            "   -v\t\tPrint version information\n"
+            "   -c {n}\tCalculate n number of stats\n"
+            "   -f {file}\tprint results to a file\n");
         case 'v':
             printf("Stat Generator by Josh Wright\nVersion %d.%d", VERSION, PATCH);
             vflag = 1;
