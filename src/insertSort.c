@@ -1,3 +1,4 @@
+#include "insertSort.h"
 /* Sort an array of unsigneds using insertion sort */
 void insertSort(unsigned* A, unsigned size) {
     char sorted = 0; // if the array is sorted or not

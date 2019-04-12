@@ -1,21 +1,14 @@
-winx := bin/stats
+stats.exe: insertSort.o stats.o
+	gcc bin/insertSort.o bin/stats.o -o bin/stats.exe -fopenmp
 
-test:= testInsertSort.h
-src:= stats.c insertSort.h
-libs := -fopenmp
+testInsertSort.o: testInsertSort.c
+	gcc -c src/testInsertSort.c -o bin/testInsertSort.o
 
-test:
-	gcc $(src) $(test) $(libs) -o $(winx).exe
+insertSort.o: src/insertSort.h src/insertSort.c
+	gcc -c src/insertSort.c -o bin/insertSort.o
 
-debug:
-	gcc -g $(src) $(test) $(libs) -o $(winx)_debug.exe
-
-all:
-	gcc $(src) $(test) $(libs) -o $(winx).exe
-	gcc -g $(src) $(test) $(libs) -o $(winx)_debug.exe
-
-windows:
-	gcc $(src) $(libs) -o $(winx).exe
+stats.o: src/stats.c
+	gcc -fopenmp -c src/stats.c -o bin/stats.o
 
 clean:
-	rm bin/*.exe
+	rm -f bin/*.exe bin/*.o
